@@ -1,0 +1,22 @@
+{
+  "name": "propel-react-chart-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Chart.bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bsfy": "browserify Chart.src.js -t [ babelify --presets [ react ] ] --outfile Chart.bundle.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chartist": "^0.10.1",
+    "react": "^15.6.1",
+    "react-chartist": "^0.13.0",
+    "react-dom": "^15.6.1"
+  },
+  "devDependencies": {
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^7.3.0"
+  }
+}

@@ -1,0 +1,365 @@
+/*MYCOURSES*/
+/*
+TOC
+1- no courses (aka OoopsNotice)
+2- Layout
+3- Buttons
+4- IMAGE 
+5- TITLES 
+6- PROGRESS 
+7- Certificate Modal
+*/
+
+/* 1 - no courses (aka OoopsNotice) */
+.OoopsNotice{
+  text-align: center;
+  background-color: #fea;
+  border-radius: 20px;
+  padding:30px;
+  font-size: 1.2em;
+}
+.OoopsNotice a:hover{
+  color: #002A41;
+}
+
+.course-catalog-filters .list-filters {
+  text-align: right;
+}
+.course-catalog-filters hr {
+  border: 1px solid #eee;
+  margin: 10px 0;
+}
+.course-catalog-filters .sort-filter {
+  width: auto;
+}
+.course-catalog-filters input.search {
+  width: 33%;
+  font-size: 18px;
+  font: normal normal normal normal 18px / 22px "Open Sans", sans-serif;
+  padding: 0.5em 0.7em;
+  border: 1px solid #bbb;
+}
+
+.courselist-course {
+    box-sizing: border-box;
+    height: 153px;
+    border: 2px solid #ddd;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    margin: 20px 0px 0px;
+    padding: 20px 0 20px 20px;
+}
+.courselist-course:after {
+    box-sizing: border-box;
+    clear: both;
+    color: rgb(85, 85, 85);
+    content: " ";
+    display: table;
+}
+.courselist-course a.course-image-link {
+    /*cursor: pointer;*/
+    box-sizing: inherit;
+    float: left;
+    height: 150px;
+    text-decoration: none;
+    width: 200px;
+    margin: -20px 0px -20px -20px;
+    border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    -webkit-border-radius: 3px 0 0 3px;
+    overflow: hidden;
+}
+
+.courselist-course-body {
+    box-sizing: border-box;
+    color: rgb(85, 85, 85);
+    height: 110px;
+    font: normal normal 300 normal 14px / 21px "Open Sans", sans-serif;
+    margin: 0px 0px 0px 200px;
+}
+.courselist-course-body .row {
+    /*cursor: pointer;*/
+    box-sizing: border-box;
+    color: rgb(85, 85, 85);
+    height: 110px;
+    font: normal normal 300 normal 14px / 21px "Open Sans", sans-serif;
+    margin: 0px;
+}
+.courselist-course-body .row:after {
+    box-sizing: border-box;
+    clear: both;
+    color: rgb(85, 85, 85);
+    content: " ";
+    display: table;
+    font: normal normal 300 normal 14px / 21px "Open Sans", sans-serif;
+}
+.courselist-course-info {
+    /*cursor: pointer;*/
+    bottom: 0px;
+    box-sizing: border-box;
+    color: rgb(85, 85, 85);
+    float: left;
+    height: 105px;
+    left: 0px;
+    min-height: 1px;
+    position: relative;
+    right: 0px;
+    top: 0px;
+    width: 75%;
+    border: 0px none rgb(85, 85, 85);
+    font: normal normal 300 normal 14px / 21px "Open Sans", sans-serif;
+    padding: 0px 13px;
+}
+.courselist-course-info h5 {
+    box-sizing: border-box;
+    color: rgb(85, 85, 85);
+    font: normal normal normal normal 18px / 22px "Open Sans", sans-serif;
+    max-height: 2.2em;
+    margin: 0px;
+}
+.courselist-course-info .badge {
+    box-sizing: border-box;
+    margin: 0px 2px;
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    float: right;
+    text-align: center;
+    white-space: nowrap;
+    background: #C34E5E;
+    border-radius: 140px;
+    -moz-border-radius: 140px;
+    -webkit-border-radius: 140px;
+    font: normal normal normal normal 12px / 12px "Open Sans", sans-serif;
+    padding: 3px 8px;
+}
+.courselist-course p.authors {
+    box-sizing: border-box;
+    color: #666;
+    height: 18px;
+    border: 0px none rgb(153, 153, 153);
+    font: normal normal 300 normal 12px / 18px "Open Sans", sans-serif;
+    margin: 2px 0px 14px;
+}
+.courselist-course p.excerpt {
+    box-sizing: border-box;
+    color: #333;
+    height: 40px;
+    border: 0px none rgb(85, 85, 85);
+    font: normal normal 300 normal 13px / 20px "Open Sans", sans-serif;
+    margin: 0px 0px 14px;
+}/*#P_11*/
+.course-progress {
+  position: relative;
+  width: 66%;
+  float:left;
+  display: block;
+  margin-bottom: -7px;
+}
+.progress {
+    box-sizing: border-box;
+    color: rgb(85, 85, 85);
+    height: 5px;
+    width: 75%;
+    background: rgb(238, 238, 238) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(85, 85, 85);
+    border-radius: 4px 4px 4px 4px;
+    font: normal normal 300 normal 14px / 20px "Open Sans", sans-serif;
+    margin: 0px 0px 10px;
+    outline: rgb(85, 85, 85) none 0px;
+    overflow: hidden;
+}
+.progress-bar {
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    float: left;
+    height: 5px;
+    text-align: center;
+    background: rgb(93, 143, 194) none repeat scroll 0% 0% / auto padding-box border-box;
+    border-radius: 4px;
+}
+.courselist-course .course-access, .courselist-course .cert-button {
+    box-sizing: border-box;
+    color: #fff;
+    /*cursor: pointer;*/
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    white-space: nowrap;  
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    font: normal normal normal normal 13px / 19px "Open Sans", sans-serif;
+    padding: 5px 12px;
+}
+.course-access {
+  width: 33%;
+  position: absolute;
+  right: 10px;
+  color: #fff;
+  background-color: #36578C;
+  color: #fff;
+  border: 1px solid #234070;
+}
+.course-access.expired {
+  cursor: not-allowed;
+  background-color: #ccc;
+  border: 1px solid #bbb;
+  color: #666;
+  overflow: hidden;
+}
+.courselist-cert-claim {
+    bottom: 0px;
+    box-sizing: border-box;
+    float: left;
+    height: 105px;
+    left: 0px;
+    min-height: 1px;
+    position: relative;
+    right: 0px;
+    text-align: center;
+    top: 0px;
+    width: 25%;
+    border-left: 2px solid #ddd;
+    padding: 0px 15px;
+}
+.courselist-cert-claim p {
+    box-sizing: border-box;
+    color: #222;
+    text-align: center;
+    font: normal normal 300 normal 14px / 21px "Open Sans", sans-serif;
+    margin: 7px 0px 0px;
+}
+.courselist-cert-claim p.light {
+    color: #222;
+    margin: 0px 0px 14px
+}
+.push-bottom {
+  bottom: 0;
+  position: absolute;
+}
+.courselist-course .act-btn {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.courselist-course .act-btn:hover {
+  color: #234070;
+  text-decoration: none;
+  background-color: #fff
+}
+.courselist-cert-claim .cert-button {
+  width: 90%;
+  left: 5%;
+  background-color: #477f80;
+  border: 1px solid #316566;
+  color: #fff;
+}
+.courselist-cert-claim .cert-button:hover,
+.courselist-cert-claim .cert-button:focus {
+  color: #316566;
+  background-color: #fff;
+}
+.badge.grey {
+  background: #999;
+}
+
+@element ".courselist-container" and (max-width: 770px) {
+  
+  .courselist-container .courselist-course {
+    height: auto;
+    padding: 20px;
+  }
+  .courselist-container .courselist-course:after {
+    box-sizing: inherit;
+    clear: both;
+    float: none;
+  }
+  .courselist-container .courselist-course a.course-image-link {
+    display: block;
+    height: 200px;
+    max-height: 200px;
+    width: 100%;
+    float: none;
+    text-decoration: none;
+    margin: 0px;
+    overflow: hidden; 
+  } 
+  .courselist-container .courselist-course-body {
+    box-sizing: inherit;
+    height: auto;
+    display: block;
+    margin: 10px 0px 0px;
+  }
+  .courselist-container .courselist-course-body .row {
+    display: block;
+    height: auto;
+  }
+  .courselist-container .courselist-course-info {
+    width: 100%;
+    height: auto;
+  }
+  .courselist-container .courselist-course-info h5 {
+    margin-bottom: 7px;
+  }
+  .courselist-container .courselist-course p.authors {
+    margin: 2px 0px 12px;
+  }
+  .courselist-container .courselist-course p.excerpt {
+    box-sizing: border-box;
+    height: auto;
+    margin-bottom: 14px;
+  }
+  .courselist-container .courselist-course .course-progress{
+    height: auto;
+    position: relative;
+  }
+  .courselist-container .courselist-cert-claim {
+    bottom: 0px;
+    min-height: 3em;
+    height: auto;
+    text-align: center;
+    width: 95%;
+    border-left: none;
+    border-top: 2px solid #ddd;
+    margin: 1em;
+    position: relative;
+    padding: 1em 14px 0;
+  }
+  .courselist-container .courselist-cert-claim p { 
+    min-height: 1em;
+  }
+  .courselist-container .courselist-cert-claim .cert-button {
+    float: none;
+    position: relative;
+    left: 0;
+    width: 60%;
+  }
+}
+
+@element ".courselist-container" and (max-width: 450px) {
+  
+  .courselist-container .courselist-course {
+    height: auto;
+    padding: 10px;
+  }
+  .courselist-container .courselist-course a.course-image-link {
+    display: block;
+    height: 120px;
+    max-height: 120px;
+  } 
+  .courselist-container .courselist-course-info h5 {
+    margin-bottom: 15px;
+  }
+  .courselist-container .courselist-course .act-btn{
+    height: auto;
+    position: relative;
+  }
+  .courselist-container .courselist-cert-claim p { 
+    min-height: 1em;
+  }
+  .courselist-container .courselist-cert-claim .cert-button {
+    width: 90%;
+  }
+}

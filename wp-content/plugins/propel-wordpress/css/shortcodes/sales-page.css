@@ -1,0 +1,14 @@
+/*sales-page-shortcodes.css*/
+
+
+.eachInstructor {
+    display: block;
+}
+.eachInstructor img{
+    display: block;
+    float:left;
+}
+
+.eachInstructor .instructor_name{
+  font-weight:bold;
+}
