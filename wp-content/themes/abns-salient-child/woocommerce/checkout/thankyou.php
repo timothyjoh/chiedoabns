@@ -58,7 +58,7 @@ if ( $order ) : ?>
 		<?php
 		///////////////////////////////
 			if ( current_user_can(org_admin)) { 
-				$linkHREF = "/okm-org-admin";
+				$linkHREF = "/okm/";
 				$linkTEXT = "Manage Keys";
 			 } else {
 			 	$linkHREF = "/my-courses";
