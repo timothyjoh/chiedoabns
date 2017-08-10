@@ -7,6 +7,9 @@ class Propel_Woo_Integration {
     add_action( 'init',
       array( $this, 'redirect_sku_slugs' ) );
 
+    add_action( 'init',
+      array( $this, 'display_sku_image' ) );
+
     add_action( 'woocommerce_review_order_before_payment',
       array( $this, 'auto_enroll_render_form' ) );
 
