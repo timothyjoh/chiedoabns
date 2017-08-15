@@ -65,3 +65,11 @@ add_filter( 'wpum/form/validate=register', function( $passed, $fields, $values )
   }
   return $passed;
 }, 10, 3 );
+
+// Don't require nickname or display_name
+add_filter( 'wpum_form_field', function( $field ) {
+  if( in_array($field['meta'],array('nickname','display_name')) ) {
+    $field['required'] = '0';
+  }
+  return $field;
+});
