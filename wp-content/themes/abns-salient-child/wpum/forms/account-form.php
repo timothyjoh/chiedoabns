@@ -19,10 +19,15 @@
 
 		<?php do_action( 'wpum_top_account_form', $atts ); ?>
 
+		<?php $fields = array_filter( $fields, function( $field_name ) {
+			return in_array( $field_name, array( 'user_email', 'first_name', 'last_name' ));
+		}, ARRAY_FILTER_USE_KEY ); ?>
+
+
 		<!-- Start Name Fields -->
 		<?php foreach ( $fields as $key => $field ) : ?>
 			<fieldset class="fieldset-<?php esc_attr_e( $key, 'wpum' ); ?>" data-type="<?php echo esc_attr( $field['type'] );?>" data-label="<?php echo esc_attr( $field['label'] );?>" data-required="<?php echo esc_attr( $field['required'] );?>" data-name="<?php esc_attr_e( $key, 'wpum' ); ?>">
-				<label for="<?php esc_attr_e( $key, 'wpum' ); ?>"><?php echo $field['label']; ?> <?php if ( ! empty( $field['required'] ) ) echo '<span class="wpum-required-star">*</span>'; ?></label>
+				<label for="<?php esc_attr_e( $key, 'wpum' ); ?>"><?php echo $field['label']; ?></label>
 				<div class="field <?php echo $field['required'] ? 'required-field' : ''; ?> field-<?php echo esc_attr( $field['type'] ); ?>">
 					<?php do_action( "wpum_before_single_{$field['type']}_field", $form, $field ); ?>
 					<?php echo wpum_get_field_input_html( $key, $field ); ?>
@@ -31,6 +36,8 @@
 			</fieldset>
 		<?php endforeach; ?>
 		<!-- End Name Fields -->
+
+		<br />
 
 		<?php do_action( 'wpum_bottom_account_form', $atts ); ?>
 
