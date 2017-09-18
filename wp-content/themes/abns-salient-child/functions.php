@@ -21,7 +21,7 @@ add_action( 'wp_enqueue_scripts', 'course_catalog_js' );
 function redirect_sku_slugs() {
   global $wpdb;
   $uri = explode('/', $_SERVER["REQUEST_URI"]);
-  if ($uri[1] == 'sku') {
+  if (count($uri)>1 && $uri[1] == 'sku') {
     error_log("sku slugs loaded: ".$uri[2]);
     $product_query = "SELECT post_id FROM $wpdb->postmeta WHERE meta_key='_sku' AND meta_value='%s' LIMIT 1";
     $product_id = $wpdb->get_var( 
