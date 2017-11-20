@@ -18,6 +18,9 @@ sitemap.xml.gz
 ### For Local Development ###
 wp-content/plugins/query-recorder-KEEP-LOCAL
 
+# Lando #
+.lando.yml
+
 # @TODO writable paths
 wp-content/cache/
 wp-content/backups/
