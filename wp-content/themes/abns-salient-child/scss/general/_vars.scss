@@ -1,0 +1,26 @@
+/* Fonts */
+$serif: 'Georgia', serif;
+$sansSerif: 'Open Sans', sans-serif;
+
+$defaultFont: $sansSerif;
+$headerFont: $sansSerif;
+
+$paragraphFont: $sansSerif;
+$headingFont: $serif;
+$buttonFont: $sansSerif;
+
+$regularWeight: 400;
+$semiBold: 600;
+$bold: 800;
+$boldest: 900;
+
+/* Colors */
+// see _colors.scss
+
+/* Device Sizes */
+$MOBILE_BREAKPOINT: 576px;
+$TABLET_BREAKPOINT: 768px;
+$LAPTOP_BREAKPOINT: 992px;
+$DESKTOP_BREAKPOINT: 1200px;
+
+$maxWidth: 1200px;

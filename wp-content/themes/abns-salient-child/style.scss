@@ -1,0 +1,53 @@
+/*!
+Theme Name: ABNS - Salient Child Theme
+Theme URI: http: //mysite.com/
+Description: Salient Child Theme for Clean Start
+Author: SDiamond for Scitent
+Author URI: http: //mysite.com/
+Template: salient
+Version: 0.1
+*/
+/******************************************************************************************/
+/*
+
+/**
+ * This scss file has been modularized!
+ */
+
+/*
+ * IMPORTS:
+ * 1. Vars - Include before other partails, so that they will be accessible
+ * 2. Mixins - Our Mixins to be used throughout the sheet.
+ * 3. Theme - This contains default Salient theme styles and ABNS global styles.
+ * 4. Page-specific - styles specific to particular pages
+ * 5. Section-specific - styles specific to particular sections
+ */
+
+/**
+ * Global / general vars, normalized styles, and mixins
+ */
+@import "scss/general/vars";
+@import "scss/general/colors";
+@import "scss/general/mixins";
+@import "scss/general/helpers";
+@import "scss/general/user-input";
+@import "scss/general/buttons";
+
+/**
+ * Theme
+ */
+@import "scss/theme/salient-child";
+@import "scss/theme/abns";
+
+/**
+ * Page-specific styles
+ */
+@import "scss/pages/post.scss";
+
+/**
+ * Section-specific styles
+ */
+@import "scss/sections/header";
+@import "scss/sections/content";
+@import "scss/sections/sidebar";
+@import "scss/sections/footer";

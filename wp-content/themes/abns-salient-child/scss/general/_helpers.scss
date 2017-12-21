@@ -1,0 +1,154 @@
+/**
+ * General styles
+ * These should only be helper classes and non-specific and repeatable styles.
+ */
+
+/*
+ * Helper / Misc Classes
+ */
+.word-break { word-break: break-word; }
+.fl { float: left; }
+.fr { float: right; }
+.center { margin: 0 auto; display: block; }
+.clear { clear: both; }
+.clear-after:after, .clearafter:after { content: ''; clear: both; display: block; }
+
+.aligncenter { text-align: center; }
+.alignright { text-align: right; }
+.alignleft { text-align: left; }
+.justify { text-align: justify; }
+.user-select-none { user-select: none; }
+.cursor-pointer { cursor: pointer; }
+.font-small { font-size: 12px; }
+.font-large { font-size: 18px; }
+
+.regular-text { font-weight: 400; color: #333; }
+.accent-text { color: $accentColor; }
+.red-text { color: #6B1200; }
+.tan-text { color: $lightTan; }
+.letterspacing { letter-spacing: 0.05em; }
+.text-decoration { text-decoration: underline!important; }
+.no-text-decoration { text-decoration: none!important; }
+.hidden { display: none!important; }
+.display-inline, .inline { display: inline!important; }
+.display-inline-block, .inline-block { display: inline-block!important; }
+.display-inline-flex, .inline-flex { display: inline-block!important; display: -webkit-inline-flex!important; display: inline-flex!important; }
+.display-block, .block { display: block!important; }
+.display-flex, .flex { @include flex(); }
+.position-relative, .relative { position: relative; }
+.position-absolute, .absolute { position: absolute; }
+.fill-absolute { position: absolute; top: 0; bottom: 0; left: 0; right: 0; }
+.ctr { text-align: center; }
+
+.z-index-9 { z-index: 9; }
+.z-index-99 { z-index: 99; }
+.z-index-999 { z-index: 999; }
+.z-index-9999 { z-index: 9999; }
+
+.no-marg { margin: 0!important; }
+.no-marg-bottom { margin-bottom: 0!important; }
+.no-marg-top { margin-top: 0!important; }
+.no-pad { padding: 0!important; }
+.no-pad-left { padding-left: 0!important; }
+.no-pad-right { padding-right: 0!important; }
+.no-pad-top { padding-top: 0!important; }
+.no-pad-bottom { padding-bottom: 0!important; }
+.no-min-width { min-width: 0!important; }
+.no-wrap { white-space: nowrap; }
+.no-border { border: none!important; }
+.no-border-bottom { border-bottom: none!important; }
+.no-box-shadow { box-shadow: none!important }
+.no-flex-grow { -webkit-flex-grow: 0!important; flex-grow: 0!important; }
+.no-flex-shrink { -webkit-flex-shrink: 0!important; flex-shrink: 0!important; }
+
+.flex-grow { -webkit-flex-grow: 1!important; flex-grow: 1!important; }
+.margin-auto { margin: auto; }
+.margin-h-auto, .margin-auto-h { margin-left: auto; margin-right: auto; }
+.margin-left-auto { margin-left: auto; }
+.margin-right-auto { margin-right: auto; }
+.width-auto { width: auto!important; }
+.width-fill, .full-width { width: 100%!important; }
+.height-auto { height: auto!important; }
+
+.justify-content-space-beween { -webkit-justify-content: space-between!important; justify-content: space-between!important; }
+.justify-content-evenly { -webkit-justify-content: space-evenly !important; justify-content: space-evenly !important; }
+.align-vert-middle, .vertical-align-middle { vertical-align: middle !important; }
+.align-vert-bottom, .vertical-align-bottom { vertical-align: bottom !important; }
+.flex-align-center { @include prefix((align-items: center), webkit moz); }
+.flex-align-bottom {
+  @include bp-desk-md() {
+    width: 100%; width: calc(100% + 30px); @include flex-align-bottom();
+  }
+}
+
+.background-transparent, .bg-trans { background: transparent; }
+.background-white, .bg-white { background: $white!important; }
+.bg-white-trans-50 { background: rgba(255, 255, 255, 0.5) !important; }
+.bg-white-trans-25 { background: rgba(255, 255, 255, 0.25) !important; }
+.bg-black-trans-50 { background: rgba(0, 0, 0, 0.5) !important; }
+.bg-black-trans-25 { background: rgba(0, 0, 0, 0.25) !important; }
+
+.border-right { border-right: 1px solid $accentColor; }
+.no-border-radius { border-radius: 0!important; }
+.circle, .border-radius-100 { border-radius: 100%; }
+
+/* responsive utils */
+@include bp-tablet() {
+  .tab-display-block, .tab-block { display: block!important; }
+  .tab-display-inline, .tab-inline { display: inline!important; }
+  .tab-display-inline-block, .tab-inline-block { display: inline-block!important; }
+  .tab-hidden { display: none!important; }
+  .tab-ctr { text-align: center; }
+}
+
+@include respond($MOBILE_BREAKPOINT, 'down') {
+  .mob-display-block, .mob-block { display: block!important; }
+  .mob-display-inline, .mob-inline { display: inline!important; }
+  .mob-display-inline-block, .mob-inline-block { display: inline-block!important; }
+  .mob-hidden { display: none!important; }
+  .mob-ctr { text-align: center; }
+}
+
+/* Variable Padding / Height */
+@for $i from 0 through 10 {
+ .pad-#{$i * 10} { padding: #{$i * 10}px!important; }
+ .pad-top-#{$i * 10} { padding-top: #{$i * 10}px!important; }
+ .pad-bottom-#{$i * 10} { padding-bottom: #{$i * 10}px!important; }
+ .pad-left-#{$i * 10} { padding-left: #{$i * 10}px!important; }
+ .pad-right-#{$i * 10} { padding-right: #{$i * 10}px!important; }
+ .marg-#{$i * 10} { margin: #{$i * 10}px!important; }
+ .marg-top-#{$i * 10} { margin-top: #{$i * 10}px!important; }
+ .marg-bottom-#{$i * 10} { margin-bottom: #{$i * 10}px!important; }
+ .marg-left-#{$i * 10} { margin-left: #{$i * 10}px!important; }
+ .marg-right-#{$i * 10} { margin-right: #{$i * 10}px!important; }
+}
+
+@for $i from 0 through 100 {
+ .height-#{$i * 10} { height: #{$i * 10}px!important; }
+ .max-height-#{$i * 10} { max-height: #{$i * 10}px!important; }
+ .width-#{$i * 10} { width: #{$i * 10}px!important; }
+ .max-width-#{$i * 10} { max-width: #{$i * 10}px!important; }
+}
+
+@include bp-desk-md() {
+  /* Variable Padding / Height */
+  @for $i from 0 through 10 {
+   .desk-pad-#{$i * 10} { padding: #{$i * 10}px!important; }
+   .desk-pad-top-#{$i * 10} { padding-top: #{$i * 10}px!important; }
+   .desk-pad-bottom-#{$i * 10} { padding-bottom: #{$i * 10}px!important; }
+   .desk-pad-left-#{$i * 10} { padding-left: #{$i * 10}px!important; }
+   .desk-pad-right-#{$i * 10} { padding-right: #{$i * 10}px!important; }
+   .desk-marg-#{$i * 10} { margin: #{$i * 10}px!important; }
+   .desk-marg-top-#{$i * 10} { margin-top: #{$i * 10}px!important; }
+   .desk-marg-bottom-#{$i * 10} { margin-bottom: #{$i * 10}px!important; }
+   .desk-marg-left-#{$i * 10} { margin-left: #{$i * 10}px!important; }
+   .desk-marg-right-#{$i * 10} { margin-right: #{$i * 10}px!important; }
+  }
+}
+
+/**
+ * EMBED RESPONSIVELY
+ * - wrap iframes (YouTube, Vimeo, etc.) in a div with a class of "embed-container" to make responsive.
+ * embedresponsively.com
+ */
+.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; }.embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }

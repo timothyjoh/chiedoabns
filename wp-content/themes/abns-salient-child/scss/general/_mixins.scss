@@ -1,0 +1,262 @@
+/* Mixin to prefix several properties at once
+ * @author Hugo Giraudel
+ * @param {Map} $declarations - Declarations to prefix
+ * @param {List} $prefixes (()) - List of prefixes to print
+ * usage: @include prefix((border-radius: 5px), webkit moz);
+ */
+@mixin prefix($declarations, $prefixes: ()) {
+  @each $property, $value in $declarations {
+    @each $prefix in $prefixes {
+      #{'-' + $prefix + '-' + $property}: $value;
+    }
+    /* Output standard non-prefixed declaration */
+    #{$property}: $value;
+  }
+}
+@mixin transition($args...) {
+  @include prefix((transition: $args), webkit moz ms o);
+}
+@mixin ease-in-out($time){
+  @include transition(all $time ease-in-out);
+}
+
+/**
+ * Quick mixes
+ */
+@mixin bdr-rad($a) { border-radius: $a; -moz-border-radius: $a; -webkit-border-radius: $a; }
+@mixin bdr-lrad($a) {
+  border-top-left-radius: $a; -moz-border-top-left-radius: $a; -webkit-border-top-left-radius: $a;
+  border-bottom-left-radius: $a; -moz-border-bottom-left-radius: $a; -webkit-border-bottom-left-radius: $a;
+}
+@mixin bdr-rrad($a) {
+  border-top-right-radius: $a; -moz-border-top-right-radius: $a; -webkit-border-top-right-radius: $a;
+  border-bottom-right-radius: $a; -moz-border-bottom-right-radius: $a; -webkit-border-bottom-right-radius: $a;
+}
+@mixin bdr-trad($a) {
+  border-top-left-radius: $a; -moz-border-top-left-radius: $a; -webkit-border-top-left-radius: $a;
+  border-top-right-radius: $a; -moz-border-top-right-radius: $a; -webkit-border-top-right-radius: $a;
+}
+@mixin bdr-brad($a) {
+  border-bottom-left-radius: $a; -moz-border-bottom-left-radius: $a; -webkit-border-bottom-left-radius: $a;
+  border-bottom-right-radius: $a; -moz-border-bottom-right-radius: $a; -webkit-border-bottom-right-radius: $a;
+}
+@mixin box-shad($a) { box-shadow: $a; -moz-box-shadow: $a; -webkit-box-shadow: $a; }
+@mixin trans($a) { transform:$a; -ms-transform:$a;  -webkit-transform:$a; }
+@mixin border-box() { box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;  }
+@mixin opacity($value){
+  $IEValue: $value*100;
+  opacity: $value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+  filter: alpha(opacity=$IEValue);
+}
+@mixin background-size-cover(){
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+@mixin antialiased(){ -webkit-font-smoothing: antialiased; }
+@mixin no-antialiased(){ -webkit-font-smoothing: auto; }
+
+/**
+ * Flex, yo
+ */
+@mixin flex() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+@mixin flex-center(){
+  @include flex();
+  -webkit-align-items: center; /* align vertical */
+  justify-content: center; /* align horizontal */
+  align-items: center;
+}
+@mixin flex-center-h(){
+  @include flex();
+  justify-content: center; /* align horizontal */
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+@mixin flex-center-v(){
+  @include flex();
+  -webkit-align-items: center; /* align vertical */
+  align-items: center;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+@mixin flex-grow($a) {
+  -webkit-flex-grow: $a;
+  flex-grow: $a;
+}
+@mixin flex-align-bottom(){
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-flexbox;
+  display: inline-flex;
+  -webkit-flex-flow: row nowrap;
+  -moz-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-align-items: flex-end;
+  -moz-align-items: flex-end;
+  align-items: flex-end;
+}
+
+/**
+ * Scale / sizing
+ */
+@mixin scale($value){
+  -moz-transform: scale($value);
+  -webkit-transform: scale($value);
+  -o-transform: scale($value);
+  -ms-transform: scale($value);
+  transform: scale($value);
+}
+/**
+ * calculates size relative to document root with px fallback
+ */
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+/**
+ * font-size mixin with fallback
+ */
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+/**
+ * line-height mixin with fallback
+ */
+@mixin line-height($size) {
+  line-height: $size;
+  line-height: calculateRem($size);
+}
+
+/**
+ * Mixin to output hover, active, and focus selectors all in one line and less code
+ * @param {String} $sel - defaults to "&" to select parent
+ * usage
+ * - before => a:hover, a:active, a:focus { color: red; }
+ * - after => @include(a) { color: red; }
+ */
+@mixin hover($sel: "&") {
+  #{$sel}:hover, #{$sel}:active, #{$sel}:focus { @content; }
+}
+
+/**
+ * Mobile First Media Queries
+ * Allow in-line media queries
+ * usage:
+ *  .selector { width: 100%;
+ *    @include bp-tablet() { width: 30%; }
+ *  }
+ * hint: check resulting stylesheet - restructures respective styles within the desired media query
+ */
+@mixin bp-phone-xs {
+  /* Extra Small Devices, Phones */
+  @media only screen and (min-width : $MOBILE_BREAKPOINT) {
+    @content;
+  }
+}
+@mixin bp-tablet {
+  /* Small Devices, Tablets */
+  @media only screen and (min-width : $TABLET_BREAKPOINT) {
+    @content;
+  }
+}
+@mixin wp-desk {
+  /* Admin menu height is 46px up through 784px, 32px for larger widths. */
+  @media only screen and (min-width : 784px) {
+    @content;
+  }
+}
+@mixin bp-desk-md {
+  /* Laptops */
+  @media only screen and (min-width : $LAPTOP_BREAKPOINT) {
+    @content;
+  }
+}
+@mixin bp-desk-lg {
+  /* Larger Than Laptop */
+  @media only screen and (min-width : $DESKTOP_BREAKPOINT) {
+    @content;
+  }
+}
+
+/**
+ * Dynamic Media Queries
+ * Allow in-line media queries
+ * usage:
+ *  .selector { width: 100%;
+ *    @include respond(768px) { width: 30%; }
+ *    @include respond(768px, 'down') { width: 100%; }
+ *  }
+ */
+ @mixin respond($breakpoint, $operator: "up", $dimension: 'width') {
+  @if $operator == "up"
+  {
+    @media print, screen and ( min-#{ $dimension }: $breakpoint) {
+      @content;
+    }
+  } @else if $operator == "down" {
+    @if unit( $breakpoint ) == "px" {
+      $breakpoint: $breakpoint - 1;
+    }
+    @media screen and (max-#{ $dimension }: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+/// Mixin to customize scrollbars
+/// Beware, this does not work in all browsers
+/// @author Hugo Giraudel
+/// @param {Length} $size - Horizontal scrollbar's height and vertical scrollbar's width
+/// @param {Color} $foreground-color - Scrollbar's color
+/// @param {Color} $background-color [mix($foreground-color, white, 50%)] - Scrollbar's color
+/// @example scss - Scrollbar styling
+///   @include scrollbars(.5em, slategray);
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+      background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+/**
+ * CSS FILTER
+  blur()
+  brightness()
+  contrast()
+  drop-shadow()
+  grayscale()
+  hue-rotate()
+  invert()
+  opacity()
+  saturate()
+  sepia()
+ */
+@mixin filter($stuff) {
+  -webkit-filter: $stuff;
+  -moz-filter: $stuff;
+  filter: $stuff;
+}
