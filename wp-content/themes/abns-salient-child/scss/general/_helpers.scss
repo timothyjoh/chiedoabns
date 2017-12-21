@@ -23,9 +23,8 @@
 .font-large { font-size: 18px; }
 
 .regular-text { font-weight: 400; color: #333; }
-.accent-text { color: $accentColor; }
+.accent-text { color: $color-accent; }
 .red-text { color: #6B1200; }
-.tan-text { color: $lightTan; }
 .letterspacing { letter-spacing: 0.05em; }
 .text-decoration { text-decoration: underline!important; }
 .no-text-decoration { text-decoration: none!important; }
@@ -82,13 +81,13 @@
 }
 
 .background-transparent, .bg-trans { background: transparent; }
-.background-white, .bg-white { background: $white!important; }
+.background-white, .bg-white { background: #fff!important; }
 .bg-white-trans-50 { background: rgba(255, 255, 255, 0.5) !important; }
 .bg-white-trans-25 { background: rgba(255, 255, 255, 0.25) !important; }
 .bg-black-trans-50 { background: rgba(0, 0, 0, 0.5) !important; }
 .bg-black-trans-25 { background: rgba(0, 0, 0, 0.25) !important; }
 
-.border-right { border-right: 1px solid $accentColor; }
+.border-right { border-right: 1px solid $color-accent; }
 .no-border-radius { border-radius: 0!important; }
 .circle, .border-radius-100 { border-radius: 100%; }
 

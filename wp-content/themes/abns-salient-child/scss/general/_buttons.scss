@@ -3,3 +3,80 @@
  *
  * Salient has its own button styles, but if we need to add more button styles we can do so here.
  */
+
+// button - regular state.
+button,
+button[type="submit"],
+input[type="submit"],
+a.button,
+.main-content button,
+.main-content button[type="submit"],
+.main-content input[type="submit"],
+.main-content a.button {
+  color: $color-black;
+  font-size: $font-size-heading-3;
+  font-weight: $font-weight-boldest;
+  text-transform: uppercase;
+  padding: 27px 36px!important;
+  border: 3px solid $color-black;
+  cursor: pointer;
+  text-decoration: none;
+
+  @include color-overlay(#fff);
+  @include ease-in-out($transition-time-default);
+
+  &.red {
+    color: $color-red;
+    border-color: $color-red;
+  }
+
+  &.green {
+    color: $color-green;
+    border-color: $color-green;
+  }
+
+  &.invert {
+    color: #fff;
+    border-color: #fff;
+
+    @include dark-overlay(25);
+  }
+
+  &.invert-transparent {
+    color: #fff;
+    border-color: #fff;
+    background-color: transparent;
+  }
+
+  &.bg-transparent {
+    background-color: transparent;
+  }
+}
+
+// button - hover state.
+button,
+button[type="submit"],
+input[type="submit"],
+a.button,
+.main-content button,
+.main-content button[type="submit"],
+.main-content input[type="submit"],
+.main-content a.button {
+
+  @include hover() {
+
+    background-color: $color-black;
+    color: #fff;
+    text-decoration: none;
+
+    &.red {
+      background-color: $color-red;
+      color: #fff;
+    }
+
+    &.green {
+      background-color: $color-green;
+      color: #fff;
+    }
+  }
+}

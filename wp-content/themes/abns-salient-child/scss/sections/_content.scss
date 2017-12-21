@@ -2,3 +2,92 @@
  * Content styles. The title is super vague but this is for custom components that we design, e.g. content blocks.
  */
 
+/**
+ * ABNS CONTENT BLOCK
+ * Used with the raw_html visual composer module.
+ * Note - highly recommend adding the class "abns-block-padding" to the outer-most row element to override VC padding. See scss/general/_visual-composer-overrides.scss.
+ */
+
+// content block heights.
+.abns-block {
+
+  &,
+  &.two-rows,
+
+  &.one-row,
+  &.full-width {
+    min-height: 275px;
+  }
+
+  // only applies to small desktop sizes and up.
+  @include bp-desk-md() {
+
+    min-height: 550px;
+
+    &.two-rows {
+      min-height: 580px;
+    }
+
+    &.one-row {
+      min-height: 275px;
+    }
+
+    &.full-width {
+      min-height: 550px;
+    }
+  }
+}
+
+// content block general settings - NORMAL STATE
+.abns-block,
+.main-content .abns-block {
+  position: relative;
+  background-color: #333;
+  overflow: hidden;
+
+  @include flex-center();
+
+  a.block-link {
+    z-index: 0;
+
+    @include fill-absolute();
+    @include ease-in-out($transition-time-default);
+    @include scale(1);
+  }
+
+  .center {
+    position: relative;
+    z-index: 1;
+
+    @include scale(1);
+  }
+
+  .button,
+  a.button {
+    color: #fff;
+    font-size: $font-size-heading-2;
+    font-weight: $font-weight-boldest;
+    padding: 27px 36px!important;
+    border: 3px solid transparent;
+    
+    @include ease-in-out($transition-time-default);
+    @include dark-overlay();
+  }
+}
+
+// content block - HOVER STATE
+.abns-block,
+.main-content .abns-block {
+
+  @include hover() {
+
+    a.block-link {
+      @include color-overlay();
+    }
+
+    .button,
+    a.button {
+      border-color: #fff;
+    }
+  }
+}

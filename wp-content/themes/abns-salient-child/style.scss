@@ -24,6 +24,11 @@ Version: 0.1
  */
 
 /**
+ * Original Salient child theme code
+ */
+@import "scss/theme/salient-child";
+
+/**
  * Global / general vars, normalized styles, and mixins
  */
 @import "scss/general/vars";
@@ -32,11 +37,11 @@ Version: 0.1
 @import "scss/general/helpers";
 @import "scss/general/user-input";
 @import "scss/general/buttons";
+@import "scss/general/visual-composer-overrides";
 
 /**
- * Theme
+ * ABNS Theme
  */
-@import "scss/theme/salient-child";
 @import "scss/theme/abns";
 
 /**

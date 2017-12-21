@@ -2,75 +2,41 @@
  * define all site colors here
  */
 
-
-/* grayscales */
-$white: #fff;
-$almostWhite: #f4f4f4;
-$snowWhite: #efefef;
-$offWhite: #e6e6e6;
-$lightTan: lighten(#F2ECE3, 3%);
-
-
-$barelyGray: #ccc;
-$somewhatGray: #adadad;
+$color-red: #AA1625;
+$color-blue-navy: #1A4B62;
+$color-blue: #256686;
+$color-blue-light: #88C2DE;
+$color-green: #1BC1AA;
+$color-green-light: #61E7C1;
+$color-black: #232323;
+$color-grey-dark: #444444;
+$color-grey-light: #F4F4F4;
 
 
-$lightGray: #777;
-$warmerGray: #666;
-$warmGray: #555;
-$darkGray: #333;
-$darkerGray: #262626;
-$bluishGray: #545C63;
 
-$warmCharcoal: #43474d;
-$charcoal: #3d4045;
-$darkCharcoal: #36383D;
+.abns-color-red             { color: $color-red!important; }
+.abns-color-blue-navy       { color: $color-blue-navy!important; }
+.abns-color-blue            { color: $color-blue!important; }
+.abns-color-blue-light      { color: $color-blue-light!important; }
+.abns-color-green           { color: $color-green!important; }
+.abns-color-green-light     { color: $color-green-light!important; }
+.abns-color-black           { color: $color-black!important; }
+.abns-color-grey-dark       { color: $color-grey-dark!important; }
+.abns-color-grey-light      { color: $color-grey-light!important; }
+
+.abns-bg-color-red          { background-color: $color-red!important; }
+.abns-bg-color-blue-navy    { background-color: $color-blue-navy!important; }
+.abns-bg-color-blue         { background-color: $color-blue!important; }
+.abns-bg-color-blue-light   { background-color: $color-blue-light!important; }
+.abns-bg-color-green        { background-color: $color-green!important; }
+.abns-bg-color-green-light  { background-color: $color-green-light!important; }
+.abns-bg-color-black        { background-color: $color-black!important; }
+.abns-bg-color-grey-dark    { background-color: $color-grey-dark!important; }
+.abns-bg-color-grey-light   { background-color: $color-grey-light!important; }
 
 
-/* reds */
-$redOrange: #f40;
-$red: #b92c2c;
-$darkRed: #6B1200;
 
-$washedRed: #BA5454;
+$color-accent: $color-green;
 
-/* blues */
-$lightBlue: #719ECE;
-$teal: #008080;
-$navyBlue: #1C4684;
-
-/* orangutans */
-$orange: #fa0;
-
-/* yellows */
-$mustardYellow: #FFD62C;
-
-/**
- * colors by section / feature
- */
-
-/* theme main accent color */
-$accentColor: $redOrange;
-$accentColorRollover: lighten($accentColor, 15%);
-
-/* main */
-$textFg: $darkGray;
-$headingFg: $warmGray;
-$paragraphFg: $darkGray;
-$blockquoteFg: $lightGray;
-
-$siteBg: $snowWhite;
-$focusColor: $accentColor;
-
-/* links (<a> tags) */
-$linkFg: $redOrange;
-$linkFgHover: lighten($redOrange, 10%);
-
-/* header / nav */
-$navLinkFg: $warmGray;
-$navLinkFgHover: $accentColor;
-$mobileNavBg: $darkerGray;
-
-/* footer */
-$footerBg: $charcoal;
-$footerAttributionBg: $warmCharcoal; 
+.abns-color-accent          { color: $color-accent!important; }
+.abns-bg-color-accent       { background-color: $color-accent!important; }

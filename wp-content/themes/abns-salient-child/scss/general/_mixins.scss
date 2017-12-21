@@ -16,8 +16,8 @@
 @mixin transition($args...) {
   @include prefix((transition: $args), webkit moz ms o);
 }
-@mixin ease-in-out($time){
-  @include transition(all $time ease-in-out);
+@mixin ease-in-out($time, $property: "all"){
+  @include transition(#{ $property } $time ease-in-out!important);
 }
 
 /**
@@ -259,4 +259,23 @@
   -webkit-filter: $stuff;
   -moz-filter: $stuff;
   filter: $stuff;
+}
+
+/**
+ * Position absolute and stretch to fill parent container
+ */
+@mixin fill-absolute() {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+@mixin dark-overlay( $opacity: 50 ) {
+  background-color: rgba(0, 0, 0, $opacity / 100);
+}
+
+@mixin color-overlay( $color: $color-accent, $opacity: 75 ) {
+  background-color: rgba($color, $opacity / 100);
 }

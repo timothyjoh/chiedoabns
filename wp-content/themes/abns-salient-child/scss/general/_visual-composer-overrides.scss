@@ -1,0 +1,48 @@
+/**
+ * The purpose of this scss file is to override default Visual Composer styles. This may get ugly.
+ * Note - VC will only be overridden if an extra class is added to certain elements. See notes above each class name.
+ */
+
+
+/**
+ * Override VC row and column padding
+ * Add this class to the outer-most row element to achieve this padding.
+ */
+ .abns-block-padding {
+
+  // only applies to tablet sizes and up.
+  @include bp-tablet() {
+
+    &.wpb_row,
+    .wpb_row {
+      margin-bottom: 0px!important;
+    }
+
+    // full column width for 1/2 size content blocks.
+    .vc_col-sm-6 {
+      width: 100%!important;
+    }
+  }
+
+  // only applies to small desktop sizes and up.
+  @include bp-desk-md() {
+
+    &.wpb_row,
+    .wpb_row {
+      margin-left: -15px;
+      margin-right: -15px;
+      margin-bottom: 0px!important;
+    }
+
+    .abns-block {
+      margin-bottom: 30px!important;
+    }
+
+    .vc_col-sm-6 {
+      width: 50%!important;
+      margin: 0;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+}

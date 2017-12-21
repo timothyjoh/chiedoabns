@@ -4,7 +4,7 @@ This child theme provides safe overridability to the Salient theme.
 
 ## Sass Instructions
 
-This project uses SASS. It's and AWESOME tool.
+This project uses SASS. It's an AWESOME tool.
 
 * Run `sass --watch .:. --style compressed` in theme's root directory. **Do not edit style.css directly**
 
