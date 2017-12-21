@@ -72,6 +72,23 @@ class WPSEO_Upgrade {
 			$this->upgrade_49();
 		}
 
+		if ( version_compare( $this->options['version'], '5.0', '<' ) ) {
+			$this->upgrade_50();
+		}
+
+		if ( version_compare( $this->options['version'], '5.0', '>=' )
+			&& version_compare( $this->options['version'], '5.1', '<' )
+		) {
+			$this->upgrade_50_51();
+		}
+
+		if ( version_compare( $this->options['version'], '5.5', '<' ) ) {
+			$this->upgrade_55();
+		}
+
+		if ( version_compare( $this->options['version'], '5.6', '<' ) ) {
+			$this->upgrade_56();
+		}
 
 		// Since 3.7.
 		$upsell_notice = new WPSEO_Product_Upsell_Notice();
@@ -96,9 +113,6 @@ class WPSEO_Upgrade {
 		// Clean up options and meta.
 		WPSEO_Options::clean_up( null, $version );
 		WPSEO_Meta::clean_up();
-
-		// Add new capabilities on upgrade.
-		wpseo_add_capabilities();
 	}
 
 	/**
@@ -123,9 +137,12 @@ class WPSEO_Upgrade {
 		if ( ! empty( $taxonomies ) ) {
 			foreach ( $taxonomies as $taxonomy => $tax_metas ) {
 				foreach ( $tax_metas as $term_id => $tax_meta ) {
-					if ( function_exists( 'wp_get_split_term' ) && $new_term_id = wp_get_split_term( $term_id, $taxonomy ) ) {
-						$taxonomies[ $taxonomy ][ $new_term_id ] = $taxonomies[ $taxonomy ][ $term_id ];
-						unset( $taxonomies[ $taxonomy ][ $term_id ] );
+					if ( function_exists( 'wp_get_split_term' ) ) {
+						$new_term_id = wp_get_split_term( $term_id, $taxonomy );
+						if ( $new_term_id !== false ) {
+							$taxonomies[ $taxonomy ][ $new_term_id ] = $taxonomies[ $taxonomy ][ $term_id ];
+							unset( $taxonomies[ $taxonomy ][ $term_id ] );
+						}
 					}
 				}
 			}
@@ -256,7 +273,7 @@ class WPSEO_Upgrade {
 	 */
 	private function upgrade_44() {
 		$option_titles = WPSEO_Options::get_option( 'wpseo_titles' );
-		$option_wpseo = WPSEO_Options::get_option( 'wpseo' );
+		$option_wpseo  = WPSEO_Options::get_option( 'wpseo' );
 
 		if ( isset( $option_titles['content-analysis-active'] ) && isset( $option_titles['keyword-analysis-active'] ) ) {
 			$option_wpseo['content_analysis_active'] = $option_titles['content-analysis-active'];
@@ -279,7 +296,7 @@ class WPSEO_Upgrade {
 		// The meta key has to be private, so prefix it.
 		$wpdb->query(
 			$wpdb->prepare(
-				'UPDATE ' . $wpdb->postmeta . ' SET meta_key = "%s" WHERE meta_key = "yst_is_cornerstone"',
+				'UPDATE ' . $wpdb->postmeta . ' SET meta_key = %s WHERE meta_key = "yst_is_cornerstone"',
 				WPSEO_Cornerstone::META_NAME
 			)
 		);
@@ -303,8 +320,8 @@ class WPSEO_Upgrade {
 
 		$usermetas = $wpdb->get_results(
 			$wpdb->prepare('
-				SELECT user_id, meta_value 
-				FROM ' . $wpdb->usermeta . ' 
+				SELECT user_id, meta_value
+				FROM ' . $wpdb->usermeta . '
 				WHERE meta_key = %s AND meta_value LIKE "%%wpseo-dismiss-about%%"
 				', $meta_key ),
 				ARRAY_A
@@ -343,4 +360,60 @@ class WPSEO_Upgrade {
 
 		return $notifications;
 	}
+
+	/**
+	 * Adds the yoast_seo_links table to the database.
+	 */
+	private function upgrade_50() {
+		global $wpdb;
+
+		$link_installer = new WPSEO_Link_Installer();
+		$link_installer->install();
+
+		// Trigger reindex notification.
+		$notifier = new WPSEO_Link_Notifier();
+		$notifier->manage_notification();
+
+		// Deletes the post meta value, which might created in the RC.
+		$wpdb->query( 'DELETE FROM ' . $wpdb->postmeta . ' WHERE meta_key = "_yst_content_links_processed"' );
+	}
+
+	/**
+	 * Updates the internal_link_count column to support improved functionality.
+	 */
+	private function upgrade_50_51() {
+		global $wpdb;
+
+		$count_storage = new WPSEO_Meta_Storage();
+		$wpdb->query( 'ALTER TABLE ' . $count_storage->get_table_name() . ' MODIFY internal_link_count int(10) UNSIGNED NULL DEFAULT NULL' );
+	}
+
+	/**
+	 * Register new capabilities and roles
+	 */
+	private function upgrade_55() {
+		// Register roles.
+		do_action( 'wpseo_register_roles' );
+		WPSEO_Role_Manager_Factory::get()->add();
+
+		// Register capabilities.
+		do_action( 'wpseo_register_capabilities' );
+		WPSEO_Capability_Manager_Factory::get()->add();
+	}
+
+	/**
+	 * Updates legacy license page options to the latest version.
+	 */
+	private function upgrade_56() {
+		global $wpdb;
+
+		// Make sure License Server checks are on the latest server version by default.
+		update_option( 'wpseo_license_server_version', WPSEO_License_Page_Manager::VERSION_BACKWARDS_COMPATIBILITY );
+
+		// Make sure incoming link count entries are at least 0, not NULL.
+		$count_storage = new WPSEO_Meta_Storage();
+		$wpdb->query( 'UPDATE ' . $count_storage->get_table_name() . ' SET incoming_link_count = 0 WHERE incoming_link_count IS NULL' );
+	}
+
+
 }
