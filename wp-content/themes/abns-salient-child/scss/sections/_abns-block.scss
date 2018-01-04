@@ -77,11 +77,13 @@
   .block-button,
   a.block-button {
     display: inline-block;
-    color: #fff;
-    font-size: $font-size-heading-2;
+    color: #fff!important;
+    font-family: $font-family-button;
+    font-size: $font-size-button!important;
     font-weight: $font-weight-boldest;
+    letter-spacing: $letter-spacing-button;
     padding: 27px 36px!important;
-    border: 3px solid transparent;
+    border: 3px solid transparent!important;
     text-decoration: none;
     
     @include ease-in-out($transition-time-default);
@@ -101,7 +103,7 @@
 
     .block-button,
     a.block-button {
-      border-color: #fff;
+      border-color: #fff!important;
     }
   }
 }

@@ -3,6 +3,7 @@
  *
  * Default button stylings added below.
  * Note - for simplicity of matching the style guide, some deeply-nested Salient styles needed to be overridden using !important tags.
+ * As such it is highly recommended to edit this scss file rather than override these styles in a subsequent css file. Save yourself the headache and learn SASS.
  *
  * USAGE: <a class="button red"></a>
  * OR - use the VC "button" module and give it a class of "red", "green", etc. Note that the accent color is overridden and irrelevant.
@@ -15,22 +16,24 @@
 button,
 button[type="submit"],
 input[type="submit"],
-.button,
+a.button,
 .main-content button,
 .main-content button[type="submit"],
 .main-content input[type="submit"],
-.main-content .button,
+.main-content a.button,
 // !!! OVERRIDE VC BUTTONS.
 .main-content .nectar-button,
-.main-content .nectar-button[data-color-override="false"].regular-button {
-  color: $color-black;
+.main-content .nectar-button[data-color-override="false"].regular-button,
+body .main-content .nectar-button[data-color-override="false"].see-through-2 {
+  color: $color-black!important;
   background-color: transparent!important;
-  font-size: $font-size-heading-4;
+  font-family: $font-family-button;
+  font-size: $font-size-button!important;
   font-weight: $font-weight-semi-bold;
-  letter-spacing: 0.05em;
+  letter-spacing: $letter-spacing-button;
   text-transform: uppercase;
   padding: 27px 36px!important;
-  border: 3px solid $color-black;
+  border: 3px solid $color-black!important;
   cursor: pointer;
   opacity: 1;
   text-decoration: none;
@@ -38,32 +41,32 @@ input[type="submit"],
   @include ease-in-out($transition-time-default);
 
   &.see-through-2 {
-    color: #fff;
-    border-color: #fff;
+    color: #fff!important;
+    border-color: #fff!important;
   }
   &.red {
-    color: $color-red;
-    border-color: $color-red;
+    color: $color-red!important;
+    border-color: $color-red!important;
   }
 
   &.green {
-    color: $color-green;
-    border-color: $color-green;
+    color: $color-green!important;
+    border-color: $color-green!important;
   }
 
   &.blue {
-    color: $color-blue;
-    border-color: $color-blue;
+    color: $color-blue!important;
+    border-color: $color-blue!important;
   }
 
   &.invert {
-    color: #fff;
-    border-color: #fff;
+    color: #fff!important;
+    border-color: #fff!important;
   }
 
   &.invert-transparent {
-    color: #fff;
-    border-color: #fff;
+    color: #fff!important;
+    border-color: #fff!important;
     background-color: transparent!important;
   }
 
@@ -71,37 +74,48 @@ input[type="submit"],
     background-color: transparent!important;
   }
 
+  // reinstate color styling. This is bad practice but was forced due to overriding Salient theme important tags.
+  &.abns-border-color-red          { border-color: $color-red!important; }
+  &.abns-border-color-blue-navy    { border-color: $color-blue-navy!important; }
+  &.abns-border-color-blue         { border-color: $color-blue!important; }
+  &.abns-border-color-blue-light   { border-color: $color-blue-light!important; }
+  &.abns-border-color-green        { border-color: $color-green!important; }
+  &.abns-border-color-green-light  { border-color: $color-green-light!important; }
+  &.abns-border-color-black        { border-color: $color-black!important; }
+  &.abns-border-color-grey-dark    { border-color: $color-grey-dark!important; }
+  &.abns-border-color-grey-light   { border-color: $color-grey-light!important; }
+
   // button - hover state.
   @include hover() {
 
     background-color: $color-black!important;
-    color: #fff;
+    color: #fff!important;
     text-decoration: none;
     cursor: pointer;
     opacity: 1;
 
     &.invert {
       background-color: #fff!important;
-      border-color: #fff;
-      color: $color-black;
+      border-color: #fff!important;
+      color: $color-black!important;
     }
 
     &.red {
       background-color: $color-red!important;
-      border-color: $color-red;
-      color: #fff;
+      border-color: $color-red!important;
+      color: #fff!important;
     }
 
     &.green {
       background-color: $color-green!important;
-      border-color: $color-green;
-      color: #fff;
+      border-color: $color-green!important;
+      color: #fff!important;
     }
 
     &.blue {
       background-color: $color-blue!important;
-      border-color: $color-blue;
-      color: #fff;
+      border-color: $color-blue!important;
+      color: #fff!important;
     }
   }
 }

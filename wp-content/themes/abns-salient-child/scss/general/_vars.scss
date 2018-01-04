@@ -4,6 +4,8 @@
 $font-family-serif: 'Georgia', serif;
 $font-family-sans-serif: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
+$font-family-button: $font-family-sans-serif;
+
 $font-weight-regular: 400;
 $font-weight-semi-bold: 600;
 $font-weight-bold: 800;
@@ -15,8 +17,11 @@ $font-size-heading-3: 26px;
 $font-size-heading-4: 20px;
 $font-size-heading-5: 18px;
 $font-size-body: 16px;
+$font-size-button: 22px;
 
 $line-height-body: 1.8em;
+
+$letter-spacing-button: 2px;
 
 /**
  * Colors
