@@ -1,12 +1,12 @@
 /**
- * Content styles. The title is super vague but this is for custom components that we design, e.g. content blocks.
- */
-
-/**
  * ABNS CONTENT BLOCK
  * Used with the raw_html visual composer module.
  * Note - highly recommend adding the class "abns-block-padding" to the outer-most row element to override VC padding. See scss/general/_visual-composer-overrides.scss.
  */
+
+ /**
+  * !!! NOTE - some VC row/col structuring that applies to abns content blocks is contained in the file: scss/general/_visual-composer-overrides.scss.
+  */
 
 // content block heights.
 .abns-block {
@@ -85,7 +85,7 @@
     text-decoration: none;
     
     @include ease-in-out($transition-time-default);
-    @include dark-overlay();
+    @include dark-overlay-important();
   }
 }
 
@@ -106,7 +106,7 @@
   }
 }
 
-// content block normal content
+// content block - normal content
 .abns-block,
 .main-content .abns-block {
   p, h1, h2, h3, h4, h5 {
@@ -114,7 +114,7 @@
   }
 }
 
-// content block inner inline content
+// content block - inner inline content
 .abns-block.inline,
 .main-content .abns-block.inline {
 
@@ -123,6 +123,7 @@
   .wpb_wrapper {
     display: block;
     width: 100%;
+    padding: 0 20px;
 
     @include bp-tablet() {
       padding: 0 40px;
@@ -152,14 +153,23 @@
 
   // tablet size and up.
   @include bp-tablet() {
+
     .left {
       width: 50%;
     }
+
     .center {
       width: 50%;
     }
+
     .right {
       width: 100%;
+    }
+
+    // remove center button top margin.
+    .center .button,
+    .center .nectar-button {
+      margin-top: 0!important;
     }
   }
 
@@ -168,9 +178,11 @@
     .left {
       width: 33.33333%;
     }
+
     .center {
       width: 33.33333%;
     }
+
     .right {
       width: 33.33333%;
     }

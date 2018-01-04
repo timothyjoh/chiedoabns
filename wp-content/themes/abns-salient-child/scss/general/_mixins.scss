@@ -276,8 +276,16 @@
   background-color: rgba(0, 0, 0, $opacity / 100);
 }
 
+@mixin dark-overlay-important( $opacity: 50 ) {
+  background-color: rgba(0, 0, 0, $opacity / 100)!important;
+}
+
 @mixin color-overlay( $color: $color-accent, $opacity: 75 ) {
   background-color: rgba($color, $opacity / 100);
+}
+
+@mixin color-overlay-important( $color: $color-accent, $opacity: 75 ) {
+  background-color: rgba($color, $opacity / 100)!important;
 }
 
 @mixin clear-after($sel: "&") {

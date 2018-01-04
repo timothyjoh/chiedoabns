@@ -1,7 +1,14 @@
 /**
  * Buttons galore
  *
- * Salient has its own button styles, but if we need to add more button styles we can do so here.
+ * Default button stylings added below.
+ * Note - for simplicity of matching the style guide, some deeply-nested Salient styles needed to be overridden using !important tags.
+ *
+ * USAGE: <a class="button red"></a>
+ * OR - use the VC "button" module and give it a class of "red", "green", etc. Note that the accent color is overridden and irrelevant.
+ *
+ * For white buttons that change color on hover, add an additional "invert" class. Note that this will be invisible on a white background.
+ * E.g. <a class="button red invert"></a>
  */
 
 // button - regular state.
@@ -13,9 +20,11 @@ input[type="submit"],
 .main-content button[type="submit"],
 .main-content input[type="submit"],
 .main-content .button,
-.main-content .nectar-button {
+// !!! OVERRIDE VC BUTTONS.
+.main-content .nectar-button,
+.main-content .nectar-button[data-color-override="false"].regular-button {
   color: $color-black;
-  background-color: transparent;
+  background-color: transparent!important;
   font-size: $font-size-heading-4;
   font-weight: $font-weight-semi-bold;
   letter-spacing: 0.05em;
@@ -23,6 +32,7 @@ input[type="submit"],
   padding: 27px 36px!important;
   border: 3px solid $color-black;
   cursor: pointer;
+  opacity: 1;
   text-decoration: none;
 
   @include ease-in-out($transition-time-default);
@@ -41,6 +51,11 @@ input[type="submit"],
     border-color: $color-green;
   }
 
+  &.blue {
+    color: $color-blue;
+    border-color: $color-blue;
+  }
+
   &.invert {
     color: #fff;
     border-color: #fff;
@@ -49,27 +64,43 @@ input[type="submit"],
   &.invert-transparent {
     color: #fff;
     border-color: #fff;
-    background-color: transparent;
+    background-color: transparent!important;
   }
 
   &.bg-transparent {
-    background-color: transparent;
+    background-color: transparent!important;
   }
 
   // button - hover state.
   @include hover() {
 
-    background-color: $color-black;
+    background-color: $color-black!important;
     color: #fff;
     text-decoration: none;
+    cursor: pointer;
+    opacity: 1;
+
+    &.invert {
+      background-color: #fff!important;
+      border-color: #fff;
+      color: $color-black;
+    }
 
     &.red {
-      background-color: $color-red;
+      background-color: $color-red!important;
+      border-color: $color-red;
       color: #fff;
     }
 
     &.green {
-      background-color: $color-green;
+      background-color: $color-green!important;
+      border-color: $color-green;
+      color: #fff;
+    }
+
+    &.blue {
+      background-color: $color-blue!important;
+      border-color: $color-blue;
       color: #fff;
     }
   }
