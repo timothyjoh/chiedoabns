@@ -190,3 +190,8 @@ if (isset($_SERVER['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
         exit();
     }
 }
+
+// temporary addition in order to upload plugins/attachments/other files to staging site.
+// REMOVE THIS BEFORE PUSHING TO LIVE SITE!!
+define( 'FS_METHOD', 'direct' );
+
