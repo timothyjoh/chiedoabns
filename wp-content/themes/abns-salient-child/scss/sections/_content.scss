@@ -45,7 +45,18 @@
   background-color: #333;
   overflow: hidden;
 
-  @include flex-center();
+  // default to center alignment.
+  &,
+  &.align-center {
+    @include flex-center();
+  }
+
+  // bottom alignment.
+  &.align-bottom {
+    @include flex-center();
+    @include prefix((align-items: flex-end), webkit);
+    padding-bottom: 40px;
+  }
 
   a.block-link {
     z-index: 0;
@@ -55,20 +66,23 @@
     @include scale(1);
   }
 
-  .center {
+  // inner content. See inner content section below.
+  .center,
+  .left {
     position: relative;
     z-index: 1;
-
-    @include scale(1);
   }
 
-  .button,
-  a.button {
+  // block buttons. Note - normal buttons are unaffected. See buttons.scss.
+  .block-button,
+  a.block-button {
+    display: inline-block;
     color: #fff;
     font-size: $font-size-heading-2;
     font-weight: $font-weight-boldest;
     padding: 27px 36px!important;
     border: 3px solid transparent;
+    text-decoration: none;
     
     @include ease-in-out($transition-time-default);
     @include dark-overlay();
@@ -85,9 +99,83 @@
       @include color-overlay();
     }
 
-    .button,
-    a.button {
+    .block-button,
+    a.block-button {
       border-color: #fff;
     }
   }
 }
+
+// content block normal content
+.abns-block,
+.main-content .abns-block {
+  p, h1, h2, h3, h4, h5 {
+    color: #fff;
+  }
+}
+
+// content block inner inline content
+.abns-block.inline,
+.main-content .abns-block.inline {
+
+  @include clear-after();
+
+  .wpb_wrapper {
+    display: block;
+    width: 100%;
+
+    @include bp-tablet() {
+      padding: 0 40px;
+    }
+
+    @include bp-desk-md() {
+      padding: 0 80px;
+    }
+
+    @include bp-desk-lg() {
+      padding: 0 120px;
+    }
+  }
+
+  .center,
+  .left,
+  .right {
+    display: block;
+    float: left;
+    margin: auto;
+    width: 100%;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  // tablet size and up.
+  @include bp-tablet() {
+    .left {
+      width: 50%;
+    }
+    .center {
+      width: 50%;
+    }
+    .right {
+      width: 100%;
+    }
+  }
+
+  // small desktop and up.
+  @include bp-desk-md() {
+    .left {
+      width: 33.33333%;
+    }
+    .center {
+      width: 33.33333%;
+    }
+    .right {
+      width: 33.33333%;
+    }
+  }
+
+  
+}
+

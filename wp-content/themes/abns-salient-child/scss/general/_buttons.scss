@@ -8,23 +8,29 @@
 button,
 button[type="submit"],
 input[type="submit"],
-a.button,
+.button,
 .main-content button,
 .main-content button[type="submit"],
 .main-content input[type="submit"],
-.main-content a.button {
+.main-content .button,
+.main-content .nectar-button {
   color: $color-black;
-  font-size: $font-size-heading-3;
-  font-weight: $font-weight-boldest;
+  background-color: transparent;
+  font-size: $font-size-heading-4;
+  font-weight: $font-weight-semi-bold;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 27px 36px!important;
   border: 3px solid $color-black;
   cursor: pointer;
   text-decoration: none;
 
-  @include color-overlay(#fff);
   @include ease-in-out($transition-time-default);
 
+  &.see-through-2 {
+    color: #fff;
+    border-color: #fff;
+  }
   &.red {
     color: $color-red;
     border-color: $color-red;
@@ -38,8 +44,6 @@ a.button,
   &.invert {
     color: #fff;
     border-color: #fff;
-
-    @include dark-overlay(25);
   }
 
   &.invert-transparent {
@@ -51,18 +55,8 @@ a.button,
   &.bg-transparent {
     background-color: transparent;
   }
-}
 
-// button - hover state.
-button,
-button[type="submit"],
-input[type="submit"],
-a.button,
-.main-content button,
-.main-content button[type="submit"],
-.main-content input[type="submit"],
-.main-content a.button {
-
+  // button - hover state.
   @include hover() {
 
     background-color: $color-black;

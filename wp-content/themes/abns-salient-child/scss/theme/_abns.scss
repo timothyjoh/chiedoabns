@@ -15,11 +15,23 @@ body, html {
   font-size: $font-size-body;
   line-height: $line-height-body;
 }
-h1 {}
-h2 {}
-h3 {}
-h4 {}
-h5 {}
+h1 {
+  font-size: $font-size-heading-1;
+  font-weight: $font-weight-semi-bold;
+}
+h2 {
+  font-size: $font-size-heading-2;
+}
+h3 {
+  font-size: $font-size-heading-3;
+}
+h4 {
+  font-size: $font-size-heading-4;
+  font-weight: $font-weight-semi-bold;
+}
+h5 {
+  font-size: $font-size-heading-5;
+}
 
 ul,
 ol,

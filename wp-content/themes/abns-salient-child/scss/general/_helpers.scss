@@ -29,9 +29,9 @@
 .text-decoration { text-decoration: underline!important; }
 .no-text-decoration { text-decoration: none!important; }
 .hidden { display: none!important; }
-.display-inline, .inline { display: inline!important; }
-.display-inline-block, .inline-block { display: inline-block!important; }
-.display-inline-flex, .inline-flex { display: inline-block!important; display: -webkit-inline-flex!important; display: inline-flex!important; }
+.display-inline { display: inline!important; }
+.display-inline-block { display: inline-block!important; }
+.display-inline-flex { display: inline-block!important; display: -webkit-inline-flex!important; display: inline-flex!important; }
 .display-block, .block { display: block!important; }
 .display-flex, .flex { @include flex(); }
 .position-relative, .relative { position: relative; }

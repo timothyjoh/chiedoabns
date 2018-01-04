@@ -34,9 +34,19 @@ $color-grey-light: #F4F4F4;
 .abns-bg-color-grey-dark    { background-color: $color-grey-dark!important; }
 .abns-bg-color-grey-light   { background-color: $color-grey-light!important; }
 
+.abns-border-color-red          { border-color: $color-red!important; }
+.abns-border-color-blue-navy    { border-color: $color-blue-navy!important; }
+.abns-border-color-blue         { border-color: $color-blue!important; }
+.abns-border-color-blue-light   { border-color: $color-blue-light!important; }
+.abns-border-color-green        { border-color: $color-green!important; }
+.abns-border-color-green-light  { border-color: $color-green-light!important; }
+.abns-border-color-black        { border-color: $color-black!important; }
+.abns-border-color-grey-dark    { border-color: $color-grey-dark!important; }
+.abns-border-color-grey-light   { border-color: $color-grey-light!important; }
 
 
 $color-accent: $color-green;
 
 .abns-color-accent          { color: $color-accent!important; }
 .abns-bg-color-accent       { background-color: $color-accent!important; }
+.abns-border-color-color-accent   { border-color: $color-accent!important; }

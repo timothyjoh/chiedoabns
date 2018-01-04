@@ -279,3 +279,11 @@
 @mixin color-overlay( $color: $color-accent, $opacity: 75 ) {
   background-color: rgba($color, $opacity / 100);
 }
+
+@mixin clear-after($sel: "&") {
+  #{$sel}:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
