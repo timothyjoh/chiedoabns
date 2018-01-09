@@ -40,7 +40,8 @@ body .main-content .nectar-button[data-color-override="false"].see-through-2 {
 
   @include ease-in-out($transition-time-default);
 
-  &.see-through-2 {
+  &.see-through-2,
+  &.whiteButton {
     color: #fff!important;
     border-color: #fff!important;
   }
@@ -94,6 +95,8 @@ body .main-content .nectar-button[data-color-override="false"].see-through-2 {
     cursor: pointer;
     opacity: 1;
 
+    &.see-through-2,
+    &.whiteButton,
     &.invert {
       background-color: #fff!important;
       border-color: #fff!important;
