@@ -32,16 +32,7 @@ function laboratory_register_required_plugins() {
    * Array of plugin arrays. Required keys are name and slug.
    * If the source is NOT from the .org repo, then source is also required.
    */
-  $plugins = array(
-
-    array(
-      'name'     => 'Metabox.io',
-      'slug'     => 'meta-box',
-      'source'   => 'https://downloads.wordpress.org/plugin/meta-box.zip',
-      'required' => true,
-    ),
-
-  );
+  $plugins = array();
 
   /*
    * Array of configuration settings. Amend each line as needed.
