@@ -50,3 +50,24 @@
     }
   }
 }
+
+$mo-padding: 25px;
+.abns-block-padding.mo-padding {
+  // only applies to small desktop sizes and up.
+  @include bp-desk-md() {
+
+    &.wpb_row,
+    .wpb_row {
+      margin-left: -$mo-padding;
+      margin-right: -$mo-padding;
+      margin-bottom: 0px!important;
+    }
+
+    .vc_col-sm-6 {
+      width: 50%!important;
+      margin: 0;
+      padding-left: $mo-padding;
+      padding-right: $mo-padding;
+    }
+  }
+}
