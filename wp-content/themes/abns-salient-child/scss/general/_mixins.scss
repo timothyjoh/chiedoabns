@@ -295,3 +295,19 @@
     clear: both;
   }
 }
+
+/**
+ * Display a font-awesome icon
+ * NOTE - font awesome must be installed on the site, and the content entity must be provided.
+ */
+@mixin font-awesome-icon( $content: '' ) {
+  content: $content!important;
+  display: inline;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  -webkit-transition: -webkit-transform .3s ease-out,border-color .3s ease-out;
+  transition: transform .3s ease-out,border-color .3s ease-out;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

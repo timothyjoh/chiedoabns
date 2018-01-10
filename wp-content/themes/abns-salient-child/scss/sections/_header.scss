@@ -1,3 +1,261 @@
 /**
  * Header Styling
  */
+
+/*********************************
+ *     salient theme overrides   *
+ *********************************/
+
+/* override spacing between secondary nav and main nav */
+#header-space {
+  height: 207px!important;
+}
+
+/* override salient top nav positioning */
+header#top nav {
+  right: initial;
+
+  @include clear-after();
+}
+
+/* override #header-outer positioning */
+body[data-hhun="1"]:not(.no-scroll) #header-outer[data-permanent-transparent="false"][data-using-secondary="1"]:not(.detached):not(.parallax-contained):not(.at-top-before-box) {
+
+  @include respond(1000px) {
+    top: 35px!important;
+  }
+}
+
+/* hide salient default cart */
+.cart-outer {
+  display: none;
+}
+
+/* hide salient default cart (mobile) */
+#header-outer header#top #mobile-cart-link {
+
+  @include respond(1001px, 'down') {
+    display: none!important;
+  }
+}
+
+/* correct the mobile menu hamburger icon */
+.slide-out-widget-area-toggle[data-icon-animation="simple-transform"].mobile-icon .lines-button:after {
+  top: 6px!important;
+}
+
+/* hide certain wp admin menu items for mobile */
+#wp-admin-bar-wpseo-menu,
+#wp-admin-bar-gform-forms,
+#wp-admin-bar-new_draft {
+
+  @include respond($TABLET_BREAKPOINT, 'down') {
+    display: none!important;
+  }
+}
+
+/* hide salient buttons (unused) */
+header#top nav .buttons {
+  display: none;
+}
+
+/***********************************
+ * secondary menu (at top of page) *
+ ***********************************/
+
+#header-secondary-outer ul.sf-menu {
+  height: 40px;
+}
+
+#header-secondary-outer nav {
+  @include clear-after();
+}
+
+.secondary-nav-button {
+  display: inline-block;
+  padding: 12px;
+  max-height: 40px;
+  background-color: $color-blue-navy;
+  color: #fff;
+  opacity: 1;
+  text-decoration: none!important;
+  font-family: $font-family-sans-serif!important;
+  font-size: 16px!important;
+  line-height: 16px !important;
+  font-weight: $font-weight-semi-bold!important;
+
+  @include hover() {
+    color: #fff;
+    opacity: 0.7;
+  }
+}
+
+/* get rid of strange pseudo-elements in secondary menu li.menu-item elements */
+#header-secondary-outer ul.sf-menu li.menu-item:before {
+  display: none;
+  content: none;
+}
+
+/* secondary menu items */
+#header-secondary-outer ul.sf-menu .menu-item {
+
+  @include hover() {
+    background-color: $color-blue-navy;
+
+    a {
+      background-color: $color-blue-navy;
+    }
+  }
+
+  a {
+    font-size: 14px!important;
+    line-height: 20px!important;
+    text-decoration: none!important;
+  }
+}
+
+/* secondary nav search icon */
+.secondary-nav-search {
+  float: right;
+
+  @include hover() {
+    background-color: $color-blue-navy;
+  }
+
+  &, div, a {
+    display: inline-block;
+  }
+
+  a {
+    text-decoration: none!important;
+  }
+
+  .icon-salient-search {
+    line-height: 40px;
+    height: 40px;
+    top: 0;
+    background: none;
+    cursor: pointer!important;
+  }
+}
+
+/*********************************
+ *       main menu               *
+ *********************************/
+
+/* right-align main menu with secondary menu (1000px wide and up) */
+body #header-outer nav {
+
+  @include respond(1000px) {
+    margin-right: -20px;
+  }
+}
+
+#header-outer .sf-menu {
+  min-height: 144px;
+}
+
+/* all menu items */
+body #header-outer .sf-menu .menu-item {
+
+  a {
+    text-decoration: none!important;
+  }
+
+  @include hover(a) {
+    color: $color-red!important;
+  }
+}
+
+/* top-level menu items */
+#header-outer .sf-menu > .menu-item:not(.menu-item-cart) {
+
+  > a {
+    padding-bottom: 65px!important;
+    font-weight: $font-weight-semi-bold;
+
+    /* re-size menu items to make header not break when downsizing */
+    @include respond(1260px, 'down') {
+      margin-left: 15px!important;
+      margin-right: 15px!important;
+      font-size: 16px;
+    }
+
+    @include respond(1150px, 'down') {
+      margin-left: 10px!important;
+      margin-right: 10px!important;
+      font-size: 14px;
+    }
+
+    @include hover() {
+      color: $color-red!important;
+    }
+  }
+
+  /* main menu chevrons (down-arrows) */
+  &.menu-item-has-children {
+
+    > a:after {
+      font-size: 16px!important;
+      position: relative!important;
+      transform: scale(1)!important;
+      border: none!important;
+      display: inline!important;
+      bottom: -1px!important;
+      margin-left: 1px;
+      color: inherit!important;
+
+      @include font-awesome-icon( "\f078" );
+    }
+  }
+}
+
+ /* main menu cart icon */
+.menu-item-cart {
+
+  a {
+    /* hack: hide menu item text by setting font-size to 0 */
+    font-size: 0!important;
+    padding-bottom: 40px!important;
+
+    @include hover() {
+      color: $color-red!important;
+    }
+  }
+
+  /* add the cart icon manually (requires font awesome to be included on site) */
+  a:before {
+    font-size: 18px!important;
+
+    @include font-awesome-icon( "\f07a" );
+  }
+
+  /* hide cart menu-item anchor pseudo element */
+  a:after {
+    display: none!important;
+    content: none!important;
+  }
+}
+
+
+/* main menu sub-menus */
+#header-outer .sf-menu > .menu-item > .sub-menu {
+  top: 110px!important;
+  right: 0!important;
+  left: inherit!important;
+  border-top: none!important;
+}
+
+/* sub-menu hover color override */
+body[data-dropdown-style="minimal"] #header-outer:not([data-format="left-header"]) header#top nav > ul > li:not(.megamenu) ul .menu-item {
+
+  @include hover(a) {
+    color: $color-red!important;
+  }
+}
+
+/* get rid of strange pseudo-elements in secondary menu li.menu-item elements */
+#header-outer .sf-menu > .menu-item > .sub-menu > li.menu-item:before {
+  display: none;
+  content: none;
+}

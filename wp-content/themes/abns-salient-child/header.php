@@ -142,6 +142,17 @@ if($using_secondary == 'header_with_secondary') { ?>
 	<div id="header-secondary-outer" data-full-width="<?php echo (!empty($options['header-fullwidth']) && $options['header-fullwidth'] == '1') ? 'true' : 'false' ; ?>" data-permanent-transparent="<?php echo $perm_trans; ?>" >
 		<div class="container">
 			<nav>
+
+				<a
+					class="secondary-nav-button"
+					href="#"
+					target="_blank"
+				>
+					Find a Board Certified Neurosurgeon
+				</a>
+
+				<li class="secondary-nav-search" id="search-btn"><div><a href="#searchbox" class=""><span class="icon-salient-search" aria-hidden="true"></span></a></div> </li>
+
 				<?php if(!empty($options['enable_social_in_header']) && $options['enable_social_in_header'] == '1') nectar_header_social_icons('secondary-nav'); ?>
 				
 				<?php if(has_nav_menu('secondary_nav')) { ?>
