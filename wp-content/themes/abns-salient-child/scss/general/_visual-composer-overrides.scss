@@ -10,6 +10,10 @@
  */
  .abns-block-padding {
 
+  .abns-block {
+    margin-bottom: 30px!important;
+  }
+
   // only applies to tablet sizes and up.
   @include bp-tablet() {
 
@@ -20,10 +24,6 @@
 
     .wpb_column {
       margin-bottom: 0!important;
-    }
-
-    .abns-block {
-      margin-bottom: 30px!important;
     }
 
     // full column width for 1/2 size content blocks.
@@ -45,8 +45,8 @@
     .vc_col-sm-6 {
       width: 50%!important;
       margin: 0;
-      padding-left: 15px;
-      padding-right: 15px;
+      padding-left: 15px!important;
+      padding-right: 15px!important;
     }
   }
 }
@@ -66,8 +66,33 @@ $mo-padding: 25px;
     .vc_col-sm-6 {
       width: 50%!important;
       margin: 0;
-      padding-left: $mo-padding;
-      padding-right: $mo-padding;
+      padding-left: $mo-padding!important;
+      padding-right: $mo-padding!important;
+    }
+  }
+}
+
+// accommodate full-screen sizing
+.abns-block-padding,
+.abns-block-padding.mo-padding {
+
+  @include bp-desk-md() {
+
+    &.wpb_row.full-width-content,
+    .wpb_row.full-width-content {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .vc_col-sm-6 {
+
+      &:first-of-type {
+        padding-left: 0!important;
+      }
+
+      &:last-of-type {
+        padding-right: 0!important;
+      }
     }
   }
 }
