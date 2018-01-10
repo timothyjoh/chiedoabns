@@ -8,11 +8,11 @@
 
 /**
  * Load theme scripts and styles.
+ * Note - the child theme stylesheet is loaded from within the Salient theme (not sure how)
  */
 function salient_child_enqueue_styles() {
   // styles.
   wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css', array( 'font-awesome' ) );
-  wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/style.css', array( 'parent-style' ), '1.0.0' );
   wp_enqueue_style( 'catalog-style', get_stylesheet_directory_uri() . '/css/catalog-style.css' );
   wp_enqueue_style( 'my-courses-style', get_stylesheet_directory_uri() . '/css/my-courses-style.css' );
 
