@@ -44,6 +44,15 @@
   position: relative;
   background-color: #333;
   overflow: hidden;
+  padding: 30px;
+
+  // overflow fix.
+  .wpb_wrapper {
+    width: 100%;
+  }
+  .block-button {
+    max-width: 100%;
+  }
 
   // default to center alignment.
   &,
@@ -80,14 +89,23 @@
     color: #fff!important;
     font-family: $font-family-button;
     font-size: $font-size-button!important;
+    line-height: 32px!important;
     font-weight: $font-weight-boldest;
     letter-spacing: $letter-spacing-button;
-    padding: 27px 36px!important;
+    padding: 23px 16px!important;
+    min-width: 120px;
     border: 3px solid transparent!important;
     text-decoration: none;
     
     @include ease-in-out($transition-time-default);
     @include dark-overlay-important();
+
+    &.small {
+      font-size: 17px!important;
+    }
+    &.full-width {
+      width: 100%;
+    }
   }
 }
 
