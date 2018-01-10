@@ -1,0 +1,26 @@
+/**
+ * Dividers, hr's, etc.
+ */
+
+
+.divider,
+.wpb_wrapper > .divider {
+  width: 100%;
+  height: 5px;
+
+  &.short {
+    width: 100px;
+  }
+  &.black {
+    background-color: $color-black;
+  }
+  &.red {
+    background-color: $color-red;
+  }
+  &.green {
+    background-color: $color-green;
+  }
+  &.blue {
+    background-color: $color-blue;
+  }
+}

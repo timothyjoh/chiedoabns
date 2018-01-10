@@ -33,6 +33,26 @@ h5 {
   font-size: $font-size-heading-5;
 }
 
+.white-text {
+  h1, h2, h3, h4, h5, p {
+    color: #fff;
+
+    @include hover() {
+      color: #fff;
+    }
+  }
+}
+
+.force-white-text {
+  h1, h2, h3, h4, h5, p {
+    color: #fff!important;
+
+    @include hover() {
+      color: #fff!important;
+    }
+  }
+}
+
 ul,
 ol,
 .main-content ul,
