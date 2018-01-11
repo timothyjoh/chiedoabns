@@ -7,6 +7,23 @@
  */
 
 /**
+ * Safely retrieve data from the $_GET variable.
+ *
+ * @param {string} $var_name - the name of the url var to retrieve.
+ * @param {bool}   $force_int - set this true to convert return value to an int.
+ * @return {string}
+ */
+function get_url_var( $var_name, $force_int = false ) {
+  if ( array_key_exists( $var_name, $_GET ) && isset( $_GET[ $var_name ] ) ) {
+    if ( $force_int ) {
+      return (Int) sanitize_text_field( wp_unslash( $_GET[ $var_name ] ) ); // CSRF okay; XSS okay; Input var okay.
+    } else {
+      return sanitize_text_field( wp_unslash( $_GET[ $var_name ] ) ); // CSRF okay; XSS okay; Input var okay.
+    }
+  }
+}
+
+/**
  * Try and get the current post from the GET or POST variable
  * note - this uses super-global form vars but doesn't actually deal with form submission, so usage of these vars is safe.
  *

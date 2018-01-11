@@ -1,0 +1,100 @@
+/**
+ * Sign Up Form
+ * Per abns home page design (bottom of page)
+ */
+
+.home-signup-form {
+  text-align: center!important;
+
+  .gform_wrapper {
+    @include bp-tablet() {
+      margin: 0!important;
+    }
+  }
+
+  .gfield,
+  .gform_fields,
+  .gform_body,
+  .gform_footer {
+
+    @include bp-tablet() {
+      display: inline-block;
+      width: auto!important;
+      margin: 0!important;
+      padding: 0!important;
+      vertical-align: middle;
+    }
+  }
+
+  h2, h3 {
+    color: $color-red;
+  }
+
+  label,
+  .gfield_label {
+    display: none!important;
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    display: inline-block;
+    background-color: $color-grey-light;
+    border-radius: 10px;
+
+    @include bp-tablet() {
+      min-width: 300px;
+      width: auto!important;
+      margin: 0 20px!important;
+    }
+
+    @include bp-desk-md() {
+      min-width: 500px;
+      margin: 0 20px!important;
+    }
+  }
+
+  button,
+  input[type="submit"] {}
+}
+
+/* overrides */
+body .home-signup-form,
+body[data-form-style="minimal"] .home-signup-form {
+
+  input[type="text"],
+  input[type="email"] {
+    padding: 21px!important;
+    font-size: 16px!important;
+    
+    @include bp-tablet() {
+      margin-top: 0;
+    }
+  }
+
+  input[type=submit] {
+    background-color: $color-red!important;
+    border-color: $color-red!important;
+    color: #fff!important;
+
+    @include hover() {
+      background-color: $color-grey-dark!important;
+      border-color: $color-grey-dark!important;
+    }
+  }
+
+  .minimal-form-input {
+    @include bp-tablet() {
+      padding-top: 0;
+    }
+  }
+
+  .ginput_container {
+    @include bp-tablet() {
+      padding: 0!important;
+      margin: 0!important;
+      max-height: 66px;
+    }
+  }
+}
+
+
