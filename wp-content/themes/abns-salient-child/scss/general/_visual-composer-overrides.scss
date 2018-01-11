@@ -82,6 +82,12 @@ $mo-padding: 25px;
     .wpb_row.full-width-content {
       margin-left: 0;
       margin-right: 0;
+
+      > .col.span_12 {
+        max-width: 1600px;
+        margin: auto;
+        float: none;
+      }
     }
 
     .vc_col-sm-6 {
