@@ -1,0 +1,248 @@
+/* this is just old code found in the home page VC custom css */
+
+form#sfwd-mark-complete {
+  text-align: center;
+}
+form#sfwd-mark-complete input {
+  font-size: 24px;
+}
+input.wpProQuiz_button {
+text-align: center;
+}
+#learndash_back_to_lesson {
+  float: right;
+}
+/**Styles above are used in courses and fail if moved to external CSS***/
+
+body.ascend #header-outer .cart-menu {
+    top: 32%;
+}
+
+/** Styling within course content below**/
+
+.section-title{
+    display:none !important;
+}
+.blog-title{
+    display:none !important;
+}
+.blue-txt{
+    color: #256686;
+}
+.red-txt{
+    color: #aa1626 !important;
+}
+.link-red-txt{
+    color: #aa1626 !important;
+}
+.heading-title{
+    display: none !important;
+}
+.laurents-underline{
+    color: #256686 !important;
+    text-decoration: underline;
+}
+
+/** Styles withing course content end **/
+
+#header-space {
+    max-height: 168 ;
+}
+
+
+#footer-outer a:hover{
+    text-decoration: underline;
+}
+div[data-style="default"] .toggle h3:hover, 
+div[data-style="default"] .toggle h3 a:hover {
+    background-color: #88c2de;
+    color: #1a4b62 !important;
+}
+
+
+
+/*temporary*/
+body.ascend #header-outer[data-full-width="false"] header#top nav >ul.buttons, #header-outer[data-format="centered-menu-under-logo"] header#top nav >ul.buttons {
+    margin-left: 0px !important;
+}
+
+header#top nav {
+    right: 0 !important;
+}/*
+.ascend #header-outer .cart-menu-wrap {
+    display: none;
+}*/
+#header-outer{
+    padding-top: 15px !important;
+}
+body #header-outer[data-format="centered-menu-under-logo"] .span_3 {
+    padding-bottom: 15px !important;
+}
+
+#top>.container{
+    width: 100vw;
+    max-width: 100vw;
+    padding-left:0;
+    padding-right:0;
+}
+
+#header-outer .row .col.span_9 {
+    width: 100vw !important;
+    background: #aa1626;
+}
+#header-outer[data-format="centered-menu-under-logo"] header#top .span_9 nav >ul >li:not(#social-in-menu):not(#search-btn):not(.slide-out-widget-area-toggle) >a {
+    padding-top: 10px!important;
+    padding-bottom: 10px!important;
+    color: #fff !important;
+}
+#header-secondary-outer nav > ul > li > a, body #header-secondary-outer nav > ul > li > a span.sf-sub-indicator [class^="icon-"], #header-secondary-outer #social li a i {
+    color: #ffffff!important;
+    font-weight: 400;
+}
+
+
+.courselist-course .act-btn {
+    color: #fff !important;
+    transition: all 1s;
+}
+.courselist-course .act-btn:hover {
+    color: #234070 !important;
+}
+
+body h2, 
+body h3{
+    color: #aa1626;
+}
+body a{
+    color:#256686;
+}
+body a:hover,
+body a:focus{
+    color:#256686;
+    text-decoration:underline;
+}
+.blueButton,
+input[type=submit], 
+button[type=submit], 
+input[type="button"],
+.woocommerce a.button, 
+.woocommerce-page a.button, 
+.woocommerce button.button, 
+.woocommerce-page button.button, 
+.woocommerce input.button, 
+.woocommerce-page input.button, 
+.woocommerce #respond input#submit, 
+.woocommerce-page #respond input#submit, 
+.woocommerce #content input.button, 
+.woocommerce-page #content input.button {
+    background-color: #256686 !important;
+}
+
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button{
+    background-color: #AA1625 !important;
+}
+
+button,
+a.button,
+.woocommerce div.product .PROPELaddtocart form.cart .button {
+    background-color: #AA1625 !important;
+    border: 1px solid #AA1625 !important;
+    color: #fff !important;
+}
+button:focus,
+button:hover,
+a.button:focus,
+a.button:hover,
+.woocommerce div.product .PROPELaddtocart form.cart .button:focus,
+.woocommerce div.product .PROPELaddtocart form.cart .button:hover {
+    background-color: #690811 !important;
+    text-decoration: none !important;
+}
+
+a.whiteButton{
+    background-color: transparent !important;
+    color: #fff !important;
+    border: 2px solid #fff !important;
+    font-weight: 600 !important;
+}
+a.whiteButton:hover,
+a.whiteButton:focus{
+    background-color: #256686 !important;
+    color: #fff !important;
+}
+
+.ascend .cart .quantity input.plus, 
+.ascend .cart .quantity input.minus ,
+.woocommerce .PROPELaddtocart .cart .quantity input.minus, 
+.woocommerce .PROPELaddtocart .cart .quantity input.plus {
+    color: #fff !important;
+}
+.ascend .cart .quantity input.plus:focus, 
+.ascend .cart .quantity input.plus:hover, 
+.ascend .cart .quantity input.minus:focus ,
+.ascend .cart .quantity input.minus:hover ,
+.woocommerce .PROPELaddtocart .cart .quantity input.minus:focus, 
+.woocommerce .PROPELaddtocart .cart .quantity input.minus:hover, 
+.woocommerce .PROPELaddtocart .cart .quantity input.plus:focus,
+.woocommerce .PROPELaddtocart .cart .quantity input.plus:hover {
+    color: #256686 !important;
+}
+#add_payment_method table.cart .product-thumbnail, 
+.woocommerce-cart table.cart .product-thumbnail, 
+.woocommerce-checkout table.cart .product-thumbnail {
+    min-width: 132px;
+}
+#top a:hover,
+#top a:focus{
+    text-decoration: none !important;
+}
+
+
+/*FAQ*/
+
+div[data-style="default"] .toggle h3:hover, 
+div[data-style="default"] .toggle h3 a:hover {
+    background-color: #256686;
+    color: #fff !important;
+}
+
+div[data-style="default"] .toggle h3:hover i, 
+div[data-style="default"] .toggle h3 a:hover i {
+    color: #fff;
+    text-decoration: none;
+}
+
+.slide-out-widget-area-toggle.mobile-icon a >span {
+    height: 35px;
+    width: 35px;
+    background: #256686;
+    text-align: center;
+    padding-top: 1px;
+}
+
+header#top #toggle-nav i {
+    float: none;
+    margin: 6px auto;
+}
+#mobile-menu ul li a {
+    padding: 16px !important;
+}
+#page-header-wrap{
+    margin-top:28px !important;
+}
+
+
+
+@media (max-width:1000px){
+    #header-outer .row .col.span_9 {
+        background: #fff;
+    }
+}
+@media only screen and (max-width: 690px){
+    .container, div.slider-nav, #post-area.standard-minimal.full-width-content article.post .inner-wrap {
+        max-width: 100% !important;
+    }
+    .container{
+        margin: 0 5px;    
+    }
+}
