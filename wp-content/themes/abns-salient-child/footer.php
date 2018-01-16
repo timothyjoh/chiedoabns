@@ -124,26 +124,44 @@ $footerColumns = (!empty($options['footer_columns'])) ? $options['footer_columns
 	<?php } //endif for enable main footer area
 
 
-	   if( $disable_footer_copyright == 'false') { ?>
+	if( $disable_footer_copyright == 'false') { ?>
 
 	
-		<div class="row" id="copyright">
+		<div class="row footer-copyright" id="copyright">
 			
 			<div class="container">
 				
-				<?php if($footerColumns != '1'){ ?>
-					<div class="col span_12">
-						
-						<?php if(!empty($options['disable-auto-copyright']) && $options['disable-auto-copyright'] == 1) { ?>
-							<p><?php if(!empty($options['footer-copyright-text'])) echo $options['footer-copyright-text']; ?> </p>	
-						<?php } else { ?>
-							<p>&copy; <?php echo date('Y') . ' ' . get_bloginfo('name'); ?>. <?php if(!empty($options['footer-copyright-text'])) echo $options['footer-copyright-text']; ?> </p>
-						<?php } ?>
-						
-					</div><!--/span_5-->
+				<?php if( $footerColumns != '1' ) { ?>
+
+          <div class="col <?php echo $footerColumnClass; ?>">
+            <div class="footer-left">
+              
+              <?php if(!empty($options['disable-auto-copyright']) && $options['disable-auto-copyright'] == 1) { ?>
+                <p><?php if(!empty($options['footer-copyright-text'])) echo $options['footer-copyright-text']; ?> </p>  
+              <?php } else { ?>
+                <p>&copy; <?php echo date('Y') . ' ' . get_bloginfo('name'); ?>. <?php if(!empty($options['footer-copyright-text'])) echo $options['footer-copyright-text']; ?> </p>
+              <?php } ?>
+
+            </div>
+          </div>
+
+          <div class="col <?php echo $footerColumnClass; ?>">
+            <div class="footer-center">
+              
+              <?php if ( is_active_sidebar( 'footer-copyright-center' ) ) : ?>
+
+                <div id="primary-sidebar" class="footer-copyright" role="complementary">
+
+                  <?php dynamic_sidebar( 'footer-copyright-center' ); ?>
+
+                </div><!-- #primary-sidebar -->
+
+              <?php endif; ?>
+
+            </div>
+          </div>
+
 				<?php } ?>
-				
-				
 
 				<?php if($footerColumns == '1'){ ?>
 					<div class="col span_12">
@@ -161,7 +179,7 @@ $footerColumns = (!empty($options['footer_columns'])) ? $options['footer_columns
 			
 		</div><!--/row-->
 		
-		<?php } //endif for enable main footer copyright ?>
+  <?php } //endif for enable main footer copyright ?>
 
 </div><!--/footer-outer-->
 
