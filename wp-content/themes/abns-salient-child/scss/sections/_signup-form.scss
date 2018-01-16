@@ -7,7 +7,7 @@
   text-align: center!important;
 
   .gform_wrapper {
-    @include bp-tablet() {
+    @include bp-desk-md() {
       margin: 0!important;
     }
   }
@@ -17,7 +17,7 @@
   .gform_body,
   .gform_footer {
 
-    @include bp-tablet() {
+    @include bp-desk-md() {
       display: inline-block;
       width: auto!important;
       margin: 0!important;
@@ -41,7 +41,7 @@
     background-color: $color-grey-light;
     border-radius: 10px;
 
-    @include bp-tablet() {
+    @include bp-desk-md() {
       min-width: 300px;
       width: auto!important;
       margin: 0 20px!important;
@@ -65,8 +65,9 @@ body[data-form-style="minimal"] .home-signup-form {
   input[type="email"] {
     padding: 21px!important;
     font-size: 16px!important;
+    background-color: #F4F4F4!important;
     
-    @include bp-tablet() {
+    @include bp-desk-md() {
       margin-top: 0;
     }
   }
@@ -89,7 +90,7 @@ body[data-form-style="minimal"] .home-signup-form {
   }
 
   .ginput_container {
-    @include bp-tablet() {
+    @include bp-desk-md() {
       padding: 0!important;
       margin: 0!important;
       max-height: 66px;
