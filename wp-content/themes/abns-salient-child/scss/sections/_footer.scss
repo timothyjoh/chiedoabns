@@ -1,3 +1,137 @@
 /**
  * Footer styles
  */
+
+/* footer main area */
+#footer-outer #footer-widgets {
+  border-top: 10px solid $color-blue;
+
+  .row {
+    padding-bottom: 20px;
+  }
+
+  .widget {
+
+    h4, p, a, span, div {
+      font-family: $font-family-sans-serif;
+    }
+
+    h4 {
+      font-size: 16px;
+      line-height: 16px;
+      font-weight: $font-weight-bold!important;
+      color: $color-blue-light!important;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+  }
+
+  .col.span_4 {
+
+    /* column 1; tablet view */
+    &:nth-child(1) {
+      @include respond(690px) {
+        width: 100%;
+      }
+    }
+
+    /* column 2; tablet view */
+    &:nth-child(2) {
+      @include respond(690px) {
+        clear: both;
+      }
+    }
+
+    /* column 3; tablet view */
+    &:nth-child(3) {
+      @include respond(690px) {
+        padding-left: 70px;
+        border-left: 1px solid $color-blue;
+      }
+    }
+
+    /* columns 2 and 3; laptop view */
+    &:nth-child(2),
+    &:nth-child(3) {
+      @include bp-desk-md() {
+        clear: none;
+        padding-left: 50px;
+        border-left: 1px solid $color-blue;
+      }
+    }
+
+    /* all columns; laptop view */
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+      @include bp-desk-md() {
+        width: 32.0%;
+        min-height: 250px;
+      }
+    }
+  }
+
+
+  .footer-center {
+
+    p {
+      font-weight: $font-weight-semi-light;
+      line-height: 30px;
+      letter-spacing: 1px;
+    }
+
+    a {
+      letter-spacing: 1px;
+    }
+  }
+
+  .footer-right {
+
+    p:first-of-type {
+      margin-top: 28px;
+    }
+
+    p {
+      letter-spacing: 1px;
+    }
+  }
+}
+
+/* footer copyright */
+#footer-outer #copyright {
+
+  .col.span_4 {
+
+    /* column 2; tablet view */
+    &:nth-child(2) {
+      @include bp-tablet() {
+        padding-left: 50px;
+      }
+    }
+  }
+
+  /* left-align all content */
+  .footer-left,
+  .footer-center {
+
+    &, p {
+      text-align: left;
+    }
+  }
+
+  .footer-left p {
+    font-size: 15px;
+    font-family: $font-family-sans-serif;
+    font-weight: $font-weight-semi-light;
+    letter-spacing: 1px;
+  }
+
+  .footer-center {
+    padding-top: 4px;
+
+    .widget,
+    img {
+      margin-bottom: 0;
+    }
+  }
+}
